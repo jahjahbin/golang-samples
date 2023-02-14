@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Sample helloworld is a basic App Engine flexible app.
+// Sample helloworld is a basic App Engine flexible app demonstrating newer
+// language features.
 package main
 
 import (
@@ -49,5 +50,5 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	s := []int{1,2,3}
-	fmt.Fprint(w, reverse(s))
+	fmt.Fprintf(w, "Hi! %v backwards is %v.", s, reverse(s))
 }
