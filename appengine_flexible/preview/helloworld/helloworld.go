@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Sample helloworld is a basic App Engine flexible app demonstrating newer
-// language features.
+// Sample helloworld is a basic App Engine flexible app.
 package main
 
 import (
@@ -22,15 +21,6 @@ import (
 	"net/http"
 	"os"
 )
-
-// A simple generic reverse function. Generics were officially added in v1.18.
-func reverse[T any](s []T) []T {
-	out := make([]T, len(s))
-	for i, el := range s {
-		out[len(s)-i-1] = el
-	}
-	return out
-}
 
 func main() {
 	http.HandleFunc("/", handle)
@@ -49,6 +39,5 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	s := []int{1,2,3}
-	fmt.Fprintf(w, "Hi! %v backwards is %v.", s, reverse(s))
+	fmt.Fprint(w, "Hello world!")
 }
